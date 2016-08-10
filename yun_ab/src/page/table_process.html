@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table文档</title>
+</head>
+<body>
+    <h3>要实现的功能</h3>
+    <ul>
+    	<li>1、DOM层面，表格没有行和列的限制</li>
+    	<li>2、数据层面，表格内容由数据提供</li>
+    	<li>3、关联房名，表格根据数据结构来生成</li>
+    </ul>
+	<h3>有哪些难点？</h3>
+	<ul>
+		<li>1、在生成tr和td时，是有两层遍历的，tr根据数据长度来遍历，tr的子元素td遍历一次，不知怎么组织这个逻辑</li>
+		<li>2、数据结构的部署，由逻辑来决定，这个可以找来参照的</li>
+		<li>3、表格数据放在后台，表头数据由用户配置</li>
+	</ul>
+</body>
+</html>
