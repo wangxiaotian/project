@@ -161,25 +161,28 @@
      */
     Utils.render = function(cfg) {
         var self = this,
-            _data = cfg.data,
-            dom = '',
-            context = cfg.context,
-            callback = cfg.callback,
+            _data = cfg.data,  // 此处为表格渲染所需的数据
+            dom = '',           
+            context = cfg.context,  // 此处为DOM对象即容器，盛放table结构
+            callback = cfg.callback, // 这里的callback不很理解，因为没有定义这个回调，也没有用到这个回调
             _tmpl;
-        if (typeof cfg.tmpl === 'function') {
+        // 定义_tmpl
+        if (typeof cfg.tmpl === 'function') { // 此处的cfg.tmpl是tpl,而tpl是未定义的，又怎么去指定是一个function呢
             _tmpl = cfg.tmpl;
         } else {
-            _tmpl = doT.template($(cfg.tmpl).html());
-        }
-
+            _tmpl = doT.template($(cfg.tmpl).html());  // 此处的代码表明cfg.tmpl是一个DOM节点，可以取其html（）的，更加疑惑
+        }                                              // 此处一直在定义_tmpl。没有重新定义tmpl,即tmpl还是原来的值
+        // 设置$(context)节点为空
         if (cfg.overwrite) {
             $(context).empty();
         }
+        // 设置dom
         if (_tmpl) {
             dom = self.renderHtml($.trim(_tmpl(_data)), context);
         } else {
             console.log("对应的模块不存在!");
         }
+        // 根据情况执行callback方式
         callback && callback.call(this, {
             data: _data,
             dom: dom

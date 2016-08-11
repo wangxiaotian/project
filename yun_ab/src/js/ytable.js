@@ -320,11 +320,14 @@
         /**
          * 渲染
          */
+        // 表格渲染
         Ytable.prototype.render = function(cb) {
             var self = this;
             Utils.requireTmpl('widgets/ytable/table', function(tpl) {
                 Utils.render({
                     context: $(self.container).find('.ytable-table'),
+                    // renderData: {thData: {},trData: {},batchable: false} 
+                    // renderData 变量包含了需要的表头数据和表格体数据
                     data: self.renderData,
                     tmpl: tpl,
                     overwrite: true
@@ -509,9 +512,12 @@
          * 初始化分页，在组件初始化的时候调用
          * @return {[type]} [description]
          */
+        // 不完全懂，只是在渲染分页的DOM，没有渲染表格的dom
         Ytable.prototype.initPaginate = function() {
             var self = this;
             // 渲染
+            // requireTmpl函数发送了一个ajax请求，成功后的回调是返回cb && cb(doT.template(rep)
+            // 这里请求的是page分页的DOM
             Utils.requireTmpl('widgets/ytable/page', function(tpl) {
                 Utils.render({
                     context: $(self.container).find('.ytable-page'),
