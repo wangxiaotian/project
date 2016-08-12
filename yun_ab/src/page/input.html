@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  
 <head>
     <meta charset="UTF-8">
     <title>input</title>
@@ -23,10 +23,67 @@
                 </div>
             </div>
             <div class="col-xs-4">
-            	<input type="text" class = "yinput-text1" name = "orderNumber" data-alias = "订单编号"/>
+                <input type="text" class="tyinput-text1" name="orderNumber" data-alias="订单编号" />
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class = "tyinput-text2" data-alias = "用户名">
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class = "tyinput-text3" data-alias = "密码">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                第二个组件，文本输入域
+            </div>
+            <div class="col-xs-6">
+                <input type="text" class = "textarea1">
+            </div>
+            <div class="col-xs-6">
+                <input type="text" class = "textarea2">
             </div>
         </div>
     </div>
+    <script>
+    $(function() {
+        // 初始化第一个插件，text插件
+        tyinput.initText({
+            container: '.tyinput-text1',
+            placeholder: '请输入订单编号',
+            length : 6,
+            labelLength : 3
+        });
+        tyinput.initText({
+            container : '.tyinput-text2',
+            placeholder : '请输入用户名',
+            length : 8,
+            labelLength : 3
+        });
+        tyinput.initText({
+            container : '.tyinput-text3',
+            placeholder : '请输入密码',
+            length : 8,
+            labelLength : 3
+        })
+        // 初始化第二个插件
+        tyinput.initTextarea({
+            container : '.textarea1',
+            labelLength : 4,
+            length : 8,
+            alias : '反馈内容',
+            height: 100,
+            maxlength : 500
+        })
+        tyinput.initTextarea({
+            container : '.textarea2',
+            labelLength : 4,
+            length : 8,
+            alias : '天书',
+            height: 200,
+            maxlength:100
+        })
+    })
+    </script>
 </body>
 
 </html>

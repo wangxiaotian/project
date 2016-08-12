@@ -2,7 +2,7 @@
  * 前端工具类
  * @module utils
  * @author xjc
- */
+ */ 
 (function() {
     window.Utils = {};
     var decode = decodeURIComponent;
