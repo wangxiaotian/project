@@ -2,7 +2,7 @@
  * 表单控件
  * @module  yform
  * @author xjc
- */
+ */ 
 jQuery(function($) {
     (function(utils) {
         Yinput = {
