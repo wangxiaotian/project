@@ -35,6 +35,7 @@
                     return;
                 }
                 try {
+                    // 这里的函数是检测是否是纯碎对象，返回值为布尔值
                     $.isPlainObject(rep);
                 } catch (e) {
                     console.log("数据解析错误!");
@@ -132,7 +133,7 @@
      *           context:'#testtpml',
      *           data:{name:"xjc"},
      *           tmpl:tmpl
-     *       })
+     *       }) 
      *   })
      */
     Utils.requireTmpl = function(tmpl, cb) {
@@ -141,7 +142,10 @@
             type: "GET",
             url: url,
             dataType: "text",
+            /*这里的rep即是请求成功时服务器端返回的数据，即是一个dot模板*/
             success: function(rep) {
+                /*这里应该是写成doT.template(rep)(data)的，但是这里没有写上数据，
+                可能是因为作用域的问题吧!*/
                 return cb && cb(doT.template(rep));
             }
         });
@@ -167,7 +171,7 @@
             callback = cfg.callback, // 这里的callback不很理解，因为没有定义这个回调，也没有用到这个回调
             _tmpl;
         // 定义_tmpl
-        if (typeof cfg.tmpl === 'function') { // 此处的cfg.tmpl是tpl,而tpl是未定义的，又怎么去指定是一个function呢
+        if (typeof cfg.tmpl === 'function') { // 此处的cfg.tmpl是tpl,是其外层函数触发回调从后台哪的数据
             _tmpl = cfg.tmpl;
         } else {
             _tmpl = doT.template($(cfg.tmpl).html());  // 此处的代码表明cfg.tmpl是一个DOM节点，可以取其html（）的，更加疑惑
@@ -178,6 +182,7 @@
         }
         // 设置dom
         if (_tmpl) {
+            /*trim函数移除字符串开始和结尾处的所有换行符，空格和制表符，返回值是经过处理的字符串*/
             dom = self.renderHtml($.trim(_tmpl(_data)), context);
         } else {
             console.log("对应的模块不存在!");

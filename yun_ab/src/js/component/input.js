@@ -7,9 +7,11 @@
      * 1、在生成dom后，最好是通过什么样的方式来获取生成的dom中的元素？才不至于与后来的存在命名冲突
      * 2、获取组件内的dom时，不能通过获取类名或者id名来获取，这样会造成在实例化多个组件时，获取的元素会相关联，不能达到
      * 单独组件初始化的效果。解决方法：将字符串包装成jQuery对象，用这个包装后的对象调用find（）方法获取后代对象，真的可以啊。
+     * 用$转换成jQuery对象时，有执行创建元素节点的过程
      * 3、即样式问题，该怎么写，是写入dom中，还是写类名，在外部文件中引入样式。
     	 * 这个问题写到顶级作用域里
      */
+    // 文本输入组件
     var TYinput = {};
     (function() {
         /*
@@ -59,7 +61,7 @@
             self.container.replaceWith(self.str);
         }
     })();
-
+    // 文本域输入组件
     (function() {
     	/*
     	 * 此组件与input组件相同，主要的部分还是生成dom,根据配置项来改变dom的一些样式或者结构，
@@ -131,6 +133,19 @@
             })
         }
     })();
+    // 地区选择框组件
+    (function(){
+    	var AreaSelector = TYinput.AreaSelector = function(){
+
+    	}
+    	AreaSelector.prototype.configuration = {
+    		container : ''
+    	}
+    	AreaSelector.prototype.init = function(options){
+    		var self = this;
+    		$.extend(true,this,this.configuration,options)
+    	}
+    })()
     // 暴露到全局
     window.tyinput = {
         initText: function(options) {

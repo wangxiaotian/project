@@ -318,13 +318,17 @@
         };
 
         /**
+         * 
          * 渲染
          */
         // 表格渲染
         Ytable.prototype.render = function(cb) {
             var self = this;
             Utils.requireTmpl('widgets/ytable/table', function(tpl) {
+                /*这里是一个回调，最终的执行是在这里执行的，回调拿到了数据tpl,它是一个模板;*/
                 Utils.render({
+                    /*render函数在这里进行调用，有意义的就是传进来的配置项，其中最关键的是tmpl
+                    这个配置项，它是需要处理的模板。至于render函数如何定义的要在utils里边去查看*/
                     context: $(self.container).find('.ytable-table'),
                     // renderData: {thData: {},trData: {},batchable: false} 
                     // renderData 变量包含了需要的表头数据和表格体数据
@@ -507,7 +511,7 @@
                 else $row.removeClass(active_class);
             });
         };
-
+ 
         /**
          * 初始化分页，在组件初始化的时候调用
          * @return {[type]} [description]
