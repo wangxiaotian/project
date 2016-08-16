@@ -134,7 +134,7 @@
      *           data:{name:"xjc"},
      *           tmpl:tmpl
      *       }) 
-     *   })
+     *   }) 
      */
     Utils.requireTmpl = function(tmpl, cb) {
         var url = '/templates/' + tmpl + '.html';
@@ -147,6 +147,7 @@
                 /*这里应该是写成doT.template(rep)(data)的，但是这里没有写上数据，
                 可能是因为作用域的问题吧!*/
                 return cb && cb(doT.template(rep));
+                /*这里回调函数有参数，因为有这样的需求，所以在调用的时候要带上形参的*/
             }
         });
     }

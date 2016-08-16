@@ -1,5 +1,5 @@
 /**
- * 表格控件
+ * 表格控件 
  * @example
  *     var onetable = ytable.create({
  *         container:'body',

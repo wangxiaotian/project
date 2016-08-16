@@ -1,0 +1,18 @@
+{
+    "status": 0,
+    "message": "success",
+    "data": [{
+        "value": "TELEPHONE",
+        "alias": "电话"
+    }, {
+        "value": "LIVE",
+        "alias": "现场"
+    }, {
+        "value": "APP",
+        "alias": "APP"
+    }, {
+        "value": "WEB_CHAT",
+        "alias": "微信"
+    }],
+    "total": 0
+}
