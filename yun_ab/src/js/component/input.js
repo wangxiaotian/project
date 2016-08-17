@@ -135,7 +135,7 @@
         }
     })();
     // 地区选择框组件
-    (function() {
+    /*(function(){
         var AreaSelector = TYinput.AreaSelector = function() {
 
         }
@@ -146,11 +146,11 @@
             var self = this;
             $.extend(true, this, this.configuration, options);
         }
-        AreaSelector.prorotype.createDom = function(){
+        AreaSelector.prototype.createDom = function(){
             var self = this;
             var str = ""
         }
-    })()
+    })()*/
     // 下拉选择组件
     (function(){
         var Selector = TYinput.Selector = function(){
@@ -171,7 +171,7 @@
         }
         Selector.prototype.initConfig = function(){
             var self = this;
-            var $container = $(self.container);
+            self.$container = $(self.container);
 
         }
         Selector.prototype.createDom = function(){
@@ -183,24 +183,27 @@
                             </div>\
                         </div>'
             self.$input = $(str);
-            $container.replaceWith($input);
+            self.$container.replaceWith(self.$input);
             // 获取模板并渲染数据
             Utils.requireTmpl('selector',function(tpl){
+                // 模板地址
+                console.log(tpl);
                 var url = self.dataSource;
                 var optiondata;
-                alert(1);
+                var data,error;
                 // 已经得到了模板，接下来获取数据
-                Utils.getData(url,function(response){
+                Utils.getData(url,'',function(response){
+                    console.log('已得到json数据');
                     if(response.status !== 0) {
                         console.log('获取下拉框数据失败');
                         return;
-                    }
+                    };
                     optiondata = response.data;
                     // 已经得到了数据，渲染数据到模板
                     Utils.render({
                         tmpl : tpl,
                         data : optiondata,
-                        container_child : self.$input.find('select');
+                        container_child : self.$input.find('select')
                     });
                 })
             })

@@ -548,6 +548,7 @@ jQuery(function($) {
                             value: '-1',
                             alias: '选择省'
                         }
+                        // 默认选项，可以先不写
                         self.addDefaultOption(optionData, defaultOption);
                         // 渲染模板
                         utils.render({
@@ -735,13 +736,12 @@ jQuery(function($) {
 
             Selector.prototype.init = function(options) {
                 $.extend(this, this.defaultOptions, options);
-
+                
                 this.initConfig();
 
                 this.initFrame();
-
             };
-
+            // initConfig即是获取配置项，主要是dom结构里配置的data属性值
             Selector.prototype.initConfig = function() {
                 var self = this;
                 // 获取容器

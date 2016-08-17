@@ -172,20 +172,20 @@
             callback = cfg.callback, // 这里的callback不很理解，因为没有定义这个回调，也没有用到这个回调
             _tmpl;
         // 定义_tmpl
-        if (typeof cfg.tmpl === 'function') { // 此处的cfg.tmpl是tpl,是其外层函数触发回调从后台哪的数据
+        if (typeof cfg.tmpl === 'function') { // 此处的cfg.tmpl是tpl,是其外层函数触发回调从后台拿的数据，本来应该是个dom模板，但是如果从调试器里查看的化，它是一个函数
             _tmpl = cfg.tmpl;
         } else {
             _tmpl = doT.template($(cfg.tmpl).html());  // 此处的代码表明cfg.tmpl是一个DOM节点，可以取其html（）的，更加疑惑
         }                                              // 此处一直在定义_tmpl。没有重新定义tmpl,即tmpl还是原来的值
-        // 设置$(context)节点为空
+        // 设置$(context)节点为空                      // 这里不知道有什么用
         if (cfg.overwrite) {
             $(context).empty();
         }
-        // 设置dom
+        // 设置dom                                    
         if (_tmpl) {
             /*trim函数移除字符串开始和结尾处的所有换行符，空格和制表符，返回值是经过处理的字符串*/
-            dom = self.renderHtml($.trim(_tmpl(_data)), context);
-        } else {
+            dom = self.renderHtml($.trim(_tmpl(_data)), context);   // 这里的renderHtml的返回值是一个操作，
+        } else {                                                    // 怎么能赋给一个变量呢？难道它真的是有返回值
             console.log("对应的模块不存在!");
         }
         // 根据情况执行callback方式
