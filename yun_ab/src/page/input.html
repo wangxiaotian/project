@@ -53,6 +53,9 @@
             <div class="col-xs-4">
                 <input type="text" class = "selector1">
             </div>
+            <div class="col-xs-4">
+                <input type="text" class = "selector2">
+            </div>
         </div>
     </div>
     <script>
@@ -96,10 +99,19 @@
         // 初始化第三个插件
         tyinput.initSelector({
             container : '.selector1',
-            length : 8,
-            labelLength : 4,
+            length : 9,
+            labelLength : 3,
             alias : '工单来源',
-            dataSource : '../apis/select.json'
+            dataSource : '../apis/select.json',
+            defaultOption : '全部'
+        })
+        tyinput.initSelector({
+            container : '.selector2',
+            length : 9,
+            labelLength : 3,
+            alias : '民谣歌曲',
+            dataSource : '../apis/select2.json',
+            defaultOption : '你猜'
         })
     })
     </script>

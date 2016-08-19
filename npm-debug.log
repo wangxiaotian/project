@@ -3,14 +3,14 @@
 1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'run',
 1 verbose cli   'static',
-1 verbose cli   '--root' ]
+1 verbose cli   '--root=D:/项目/own/git/wangxiaotian/project' ]
 2 info using npm@2.15.0
 3 info using node@v4.4.2
 4 verbose stack Error: ENOENT: no such file or directory, open 'D:\项目\own\git\wangxiaotian\project\package.json'
 4 verbose stack     at Error (native)
 5 verbose cwd D:\项目\own\git\wangxiaotian\project
 6 error Windows_NT 10.0.10240
-7 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "static" "--root"
+7 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "static" "--root=D:/项目/own/git/wangxiaotian/project"
 8 error node v4.4.2
 9 error npm  v2.15.0
 10 error path D:\项目\own\git\wangxiaotian\project\package.json

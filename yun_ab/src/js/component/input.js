@@ -153,6 +153,17 @@
     })()*/
     // 下拉选择组件
     (function(){
+        
+        /*
+         * 这是第一个应用到数据请求模板和数据来完成dom的组件，遇到的问题如下：
+         * 1、定义数据获取函数，由于要定义回调以及复用性问题，需要在公共工具集里定义
+         * 公共方法。
+         * 2、数据获取转化问题，可能不具有普遍性；这里遇到的问题就是dot模板在外部引用时，
+         * 它返回的是一个匿名函数，不是html。解决办法：看调试器信息，这个匿名函数返回了一个
+         * 加载数据后的字符串，如果没有数据，它返回的是一个空字符串，即给它传递一个数据并让
+         * 它执行，就能得到想要的dom
+         */
+
         var Selector = TYinput.Selector = function(){
 
         }
@@ -161,7 +172,8 @@
             alias : '',
             length : 10,
             labelLength : 2,
-            dataSource : ''       /*安邦里边这里定义了两种形式，一种是数组，另一种是url，这里先写一种*/
+            dataSource : '',       /*安邦里边这里定义了两种形式，一种是数组，另一种是url，这里先写一种*/
+            defaultOption : ''
         }
         Selector.prototype.init = function(options){
             var self = this;
@@ -179,7 +191,9 @@
             var str = '<div class = "form-group">\
                             <label class = "control-label col-xs-' + self.labelLength + '">' + self.alias + '</label>\
                             <div class = "col-xs-' + self.length + '">\
-                                <select class = "form-control col-xs-"></select>\
+                                <select class = "form-control">\
+                                <option selected>' + self.defaultOption + '</option>\
+                                </select>\
                             </div>\
                         </div>'
             self.$input = $(str);

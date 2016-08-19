@@ -13,6 +13,9 @@
     }, {
         "value": "WEB_CHAT",
         "alias": "微信"
+    }, {
+        "value": "qq",
+        "alias": "扣扣"
     }],
     "total": 0
 }

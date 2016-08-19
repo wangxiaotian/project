@@ -37,15 +37,13 @@
                     }
                     return;
                 }
-                // 代理，当 status 为 2 的时候，跳转到登录页面，所有异步请求都
-                // 如此,安邦有这样的需求，这里先不写
                 callback(response);
             },
             error : function(){
                 if(typeof error === 'function'){
                     error.apply(this,arguments)
                 } else {
-                    alert('操作失败，请稍后再试');
+                    alert('获取数据失败，请调试');
                 }
             }
         })
@@ -66,25 +64,11 @@
     // 渲染模板
     Utils.render = function(cfg){
         var self = this,
-            dom = '',
             _data = cfg.data,
             _container = cfg.container_child,
-            callback = cfg.callback,
             _tmpl;
-        var teststr = cfg.tmpl;
-        _tmpl = doT.template(cfg.tmpl);
-        // 过滤一下格式
-        if(_tmpl){
-            dom = self.renderHtml($.trim(_tmpl(_data)),_container);
-        } else {
-            console.log('对应的模块不存在');
-        }
-        // 根据情况执行callback方式(原文描述)
-        /*callback && callback.call(this,{
-            data : _data,
-            dom : dom
-        })*/
-        console.log('render函数执行到底了');
+        _tmpl = (cfg.tmpl)(_data);
+        self.renderHtml(_tmpl,_container);
     }
     // 这里是一个添加dom到容器的操作，单独抽出来了，也可以
     Utils.renderHtml = function(tmpl,context){

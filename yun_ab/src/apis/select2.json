@@ -1,0 +1,18 @@
+{
+    "status": 0,
+    "message": "success",
+    "data": [{
+        "value": "1",
+        "alias": "四个牧民"
+    }, {
+        "value": "二",
+        "alias": "三个喇嘛"
+    }, {
+        "value": "仨",
+        "alias": "两杆铁枪"
+    }, {
+        "value": "肆",
+        "alias": "一个西藏"
+    }],
+    "total": 0
+}

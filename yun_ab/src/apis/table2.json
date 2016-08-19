@@ -1,0 +1,30 @@
+ {
+     "status": 0,
+     "message": "success",
+     "data": [{
+         "data": "2016年08月18日",
+         "userNum": "1",
+         "addNum": "3",
+         "addTotal": "4"
+     }, {
+         "data": "2016年08月17日",
+         "userNum": "17",
+         "addNum": "14",
+         "addTotal": "31"
+     }, {
+         "data": "2016年08月16日",
+         "userNum": "1",
+         "addNum": "93",
+         "addTotal": "94"
+     }, {
+         "data": "2016年08月15日",
+         "userNum": "10",
+         "addNum": "9",
+         "addTotal": "19"
+     }, {
+         "data": "2016年08月14日",
+         "userNum": "1",
+         "addNum": "0",
+         "addTotal": "1"
+     }]
+ }

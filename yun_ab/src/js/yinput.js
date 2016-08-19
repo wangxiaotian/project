@@ -767,7 +767,7 @@ jQuery(function($) {
                     self.placeholder = placeholder;
                 }
 
-            }
+            } 
 
             Selector.prototype.initFrame = function() {
                 var self = this;

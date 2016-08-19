@@ -2,22 +2,24 @@
      "status": 0,
      "message": "success",
      "data": [{
-         "id": 1,
          "number": "001",
          "name": "小强",
          "department": "项目部",
          "role": "公司领导"
      }, {
-         "id": 2,
          "number": "002",
          "name": "小明",
          "department": "设计部",
          "role": "机械设计"
      }, {
-         "id": 3,
          "number": "003",
-         "name": "小才",
+         "name": "小天",
          "department": "装配部",
          "role": "机械装配"
+     }, {
+         "number": "004",
+         "name": "小水",
+         "department": "电气部",
+         "role": "电气调试"
      }]
  }

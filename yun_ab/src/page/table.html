@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head> 
     <meta charset="UTF-8">
     <title>table应用</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/jquery.min.js"></script>
+    <script src = "../js/doT.js"></script>
     <script src = "../js/component/table.js"></script>
     <script src = "../js/component/utils.js"></script>
 </head>
@@ -21,12 +22,66 @@
             <div class="col-xs-12 table1">
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-12">table——second</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 table2">
+                
+            </div>
+        </div>
     </div>
     <script>
+    var ops = [];
+    ops.push({
+        name : '详细信息',
+        todo : function(index){
+            window.location.href = 'https://www.baidu.com';
+        }
+    });
+    ops.push({
+        name : '编辑',
+        todo : function(index){
+            window.location.href = 'https://www.zhihu.com'
+        }
+    });
     $(function(){
+        // 初始化表格
     	tytable.init({
-    		container : '.table1'
+    		container : '.table1',
+            url : '../apis/table.json',
+            operation : ops,
+            cols : [{
+                name : 'number',
+                alias : '工号'
+            },{
+                name : 'name',
+                alias : '姓名'
+            },{
+                name : 'department',
+                alias : '部门'
+            },{
+                name : 'role',
+                alias : '工作'
+            }]
     	})
+        tytable.init({
+            container : '.table2',
+            url : '../apis/table2.json',
+            cols : [{
+                name : 'date',
+                alias : '日期'
+            },{
+                name : 'userNum',
+                alias : '新增已认证用户(个)'
+            },{
+                name : 'addNum',
+                alias : '新增注册用户(个)'
+            },{
+                name : 'addTotal',
+                alias : '新增用户总数'
+            }]
+        })
     })
     </script>
 </body>

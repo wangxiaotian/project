@@ -1,0 +1,18 @@
+{
+    "status": 0,
+    "message": "success",
+    "data": [{
+        "value": 5,
+        "alias": "开发"
+    }, {
+        "value": 153,
+        "alias": "总经理"
+    }, {
+        "value": 154,
+        "alias": "产品"
+    }, {
+        "value": 155,
+        "alias": "运营"
+    }],
+    "total": 0
+}
