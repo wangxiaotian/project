@@ -15,6 +15,7 @@
 			{{for(var prop in row){ }}
 			<td>{{=row[prop]}}</td>
             {{ } }}
+
             {{?it.opsData.length>0}}
             <td>
             {{for(var prop in it.opsData){ }}
@@ -22,6 +23,7 @@
             {{ } }}
             </td>
             {{?}}
+
 		</tr>
 		{{~}}
 	</tbody>

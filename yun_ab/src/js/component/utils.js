@@ -67,6 +67,8 @@
             _data = cfg.data,
             _container = cfg.container_child,
             _tmpl;
+        // 渲染一次只渲染一个数据，所以之前的dom要清空
+        _container.html('');
         _tmpl = (cfg.tmpl)(_data);
         self.renderHtml(_tmpl,_container);
     }

@@ -1,0 +1,44 @@
+.page{
+	background:#EFF3F8;
+	padding-top: 20px;
+    margin-top: -20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.page .tytable-page1{
+	display : inline;
+	margin-left:20px;
+}
+.page ul li{
+	list-style: none;
+	float : left;
+	width:60px;
+	text-align:center;
+	border:1px solid #ccc;
+	padding:5px;
+	border-left:none;
+}
+.page ul li:first-child{
+    border-left:1px solid #ccc;
+}
+.page .tytable-input{
+	max-width: 35px;
+	text-align : center;
+	vertical-align: middle;
+}
+.page .tytable-page2{
+	float:right;
+	padding:5px;
+	margin-top:-10px;
+}
+.tytable-page-right{
+	text-align:center;
+	margin-top:-5px;
+}
+.tytable-jump a{
+	border:1px solid #428BCA;
+	color : #fff;
+	background-color:#428BCA;
+	padding:4px 10px;
+	font-weight:100;
+}

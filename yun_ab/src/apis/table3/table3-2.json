@@ -1,0 +1,15 @@
+{
+     "status": 0,
+     "message": "success",
+     "data": [{
+         "number": "诛仙",
+         "name": "萧鼎",
+         "department": "张小凡",
+         "role": "陆雪琪"
+     }, {
+         "number": "神墓",
+         "name": "辰东",
+         "department": "辰南",
+         "role": "雨馨"
+     }]
+ }

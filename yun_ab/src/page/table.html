@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>table应用</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/common.css">
     <script src="../js/jquery.min.js"></script>
     <script src = "../js/doT.js"></script>
     <script src = "../js/component/table.js"></script>
@@ -18,21 +19,29 @@
                 <h3>table</h3>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 table1">
-            </div>
+        <div class = "row">
+            <div class="col-xs-12 table3"></div>
         </div>
+        
         <div class="row">
-            <div class="col-xs-12">table——second</div>
+            <div class="col-xs-12"><p>table——second</p></div>
         </div>
         <div class="row">
             <div class="col-xs-12 table2">
                 
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-12"><p>table-three</p></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 table1">
+            </div>
+        </div>
     </div>
     <script>
-    var ops = [];
+    var ops = [],
+        ops1 = [];
     ops.push({
         name : '详细信息',
         todo : function(index){
@@ -45,8 +54,27 @@
             window.location.href = 'https://www.zhihu.com'
         }
     });
+    ops1.push({
+        name : '删除',
+        todo : function(){
+            alert('真的要删除吗？')
+        }
+    });
+    ops1.push({
+        name : '组件',
+        todo : function(){
+            window.location.href = 'input.html'
+        }
+    })
     $(function(){
         // 初始化表格
+        /*
+         * 当页面跳转后，点击浏览器回退按钮，页面只会显示script里面加载的第一个组件，第二个和第三个貌似没有获取到表格体数据，只显示了表头数据，这个很奇怪
+         * 2、上面的现象不具有普遍性，当在js代码里边加入alert调试的时候，发生了变化
+         * 3、上面的调试都是基于chrome的，当换到火狐浏览器后，没有问题了，浏览器的返回按钮后，页面正常，没有丢失渲染组件的情况出现
+         * 4、IE浏览器也没有这个问题
+         */
+        
     	tytable.init({
     		container : '.table1',
             url : '../apis/table.json',
@@ -66,6 +94,24 @@
             }]
     	})
         tytable.init({
+            container : '.table3',
+            url : '../apis/table3.json',
+            operation : '',
+            cols : [{
+                name : 'number',
+                alias : '书名'
+            },{
+                name : 'name',
+                alias : '作者'
+            },{
+                name : 'department',
+                alias : '男主角'
+            },{
+                name : 'role',
+                alias : '女猪脚'
+            }]
+        })
+        tytable.init({
             container : '.table2',
             url : '../apis/table2.json',
             cols : [{
@@ -80,8 +126,10 @@
             },{
                 name : 'addTotal',
                 alias : '新增用户总数'
-            }]
+            }],
+            operation : ops1
         })
+        
     })
     </script>
 </body>
