@@ -98,6 +98,7 @@
                 } catch (e) {
                     console.log("数据解析错误!");
                     if (typeof error === 'function') {
+                        // 这行代码不是很懂
                         error.apply(this, arguments);
                     } else {
                         Utils.alert("数据解析错误");
