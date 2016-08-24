@@ -1,0 +1,21 @@
+{
+    "status": 0,
+    "message": "success",
+    "data": [{
+        "value": "TELEPHONE",
+        "alias": "机械制图"
+    }, {
+        "value": "LIVE",
+        "alias": "机械设计"
+    }, {
+        "value": "APP",
+        "alias": "机械装配"
+    }, {
+        "value": "WEB_CHAT",
+        "alias": "非标设计"
+    }, {
+        "value": "qq",
+        "alias": "前端开发"
+    }],
+    "total": 0
+}

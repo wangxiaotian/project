@@ -31,7 +31,9 @@
             // 文本框长度值
             length: 9,
             // lable长度值
-            labelLength: 3
+            labelLength: 3,
+            // 要有一个name属性，在调用jQuery插件进行验证时会用到
+            name : ''
         }
         Text.prototype.init = function(options) {
             var self = this;
@@ -49,10 +51,12 @@
             // 简单的组件就不需要dom外架了
         Text.prototype.createDom = function() {
                 var self = this;
-                self.str = '<div class = "from-group">\
+                // 水平表单
+                self.str = '<div class = "form-group">\
                             <label class = "control-label col-xs-' + self.labelLength + '">' + self.label_value + '</label>\
-                            <input class = "col-xs-' + self.length + '" type = "text" placeholder = "' + self.placeholder_value + '\
-                            ">\
+                            <div class = "col-xs-' + self.length + '">\
+                                <input class = "form-control" type = "text" placeholder = "' + self.placeholder_value + '" name = "' + self.name + '">\
+                            </div>\
                        </div>'
 
             }
@@ -80,7 +84,7 @@
             labelLength: 3,
             length: 9,
             maxlength: 500,
-            tip: ''
+            name: ''
         }
         Textarea.prototype.init = function(options) {
             var self = this;
@@ -97,18 +101,20 @@
         }
         Textarea.prototype.createDom = function() {
             var self = this;
-            var str = '<div class = "form-group">\
-                            <label style = "float:left" class = "col-xs-"' + self.labelLength + '">' + self.alias + '</label>\
+            var str = '<div class = "form-group" style = "">\
+                            <label style = "" class = "control-label col-xs-' + self.labelLength + '">' + self.alias + '</label>\
                             <div class = "col-xs-' + self.length + '">\
-                                <textarea id = "inp" class = "form-control" style = "height:' + self.height + 'px"></textarea>\
-                                <p id = "war1">还剩<span class = "num1"></span>个字符，最多只能输入<span class = "num2"></span>个字符</p>\
+                                <textarea id = "inp" class = "form-control" style = "height:' + self.height + 'px" name = "' + self.name + '"></textarea>\
+                                <p id = "war1" style = "color:red">还剩<span class = "num1"></span>个字符，最多只能输入<span class = "num2"></span>个字符</p>\
+                                <p id = "war1_space" style = "height:20px;"></p>\
                             </div>\
                         </div>'
                 // 这个地方的获取元素，安邦里边是把字符串变为了dom对象，然后在获取
             var $input = $(str);
             self.$input = $input;
             self.container.replaceWith($input);
-            self.warP = $input.find('p');
+            self.warP = $input.find('#war1');
+            self.war1Space = $input.find('#war1_space');
             self.num1 = $input.find('span.num1');
             self.num2 = $input.find('span.num2');
             self.textarea = $input.find('textarea');
@@ -125,8 +131,10 @@
                 var num = $(this).val().length;
                 var Tnum = self.maxlength;
                 if (num <= 0) {
+                    self.war1Space.show();
                     self.warP.hide();
                 } else {
+                    self.war1Space.hide();
                     self.warP.show();
                     self.num1.text(self.maxlength - num);
                     self.num2.text(self.maxlength);
@@ -173,7 +181,8 @@
             length : 10,
             labelLength : 2,
             dataSource : '',       /*安邦里边这里定义了两种形式，一种是数组，另一种是url，这里先写一种*/
-            defaultOption : ''
+            defaultOption : '',
+            name : ''
         }
         Selector.prototype.init = function(options){
             var self = this;

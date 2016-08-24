@@ -146,6 +146,7 @@ jQuery(function($) {
          * 初始化事件
          * @return {[type]} [description]
          */
+        // 这个才是重要的功能，之前的校验都是在运用jQuery的插件
         Yform.prototype.initSubmitBtn = function() {
             var self = this;
             var disabled = false;

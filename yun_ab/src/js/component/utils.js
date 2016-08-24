@@ -48,6 +48,45 @@
             }
         })
     }
+    // 通用发送数据的方法
+    Utils.postData = function(url,data,callback){
+        // url 要进行编码，data要进行转化，为之字符串
+        var encodeUrl = encodeURI(url);
+        if (typeof data === 'object') {
+            data = $.param(data);
+        }
+        data = encodeURI(data);
+        $.ajax({
+            'type' : 'POST',
+            data : data,
+            url : url,
+            dataType : 'json',
+            contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+            success : function(rep){
+                if (!response) {
+                    return;
+                }
+                try {
+                    $.isPlainObject
+                } catch (e){
+                    console.log('数据解析错误！');
+                    if(typeof error === 'function'){
+                        error.apply(this,arguments);
+                    } else {
+                        alert('数据解析错误')
+                    }
+                    return;
+                }
+            },
+            error : function(rep){
+                if(typeof error === 'function'){
+                    error.apply(this,arguments)
+                } else {
+                    alert('获取数据失败，请调试');
+                }
+            }
+        })
+    }
     // 获取模板
     Utils.requireTmpl = function(tmpl,cb){
         var url = 'templates/' + tmpl + '.html';
