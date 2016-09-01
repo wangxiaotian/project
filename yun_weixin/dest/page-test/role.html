@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>驴拍</title>
+    <link rel="stylesheet" href="/src/css/bootstrap.css">
+<link rel="stylesheet" href="/src/css/common.css">
+<script src="/src/scripts/jquery.min.js"></script>
+<script src="/src/scripts/bootstrap.js"></script>
+<script src="/src/scripts/doT.js"></script>
+<script src="/src/scripts/common.js"></script>
+<script src = "/src/scripts/components/utils.js"></script>
+<script src = "/src/scripts/components/table.js"></script>
+<script src = "/src/scripts/components/input.js"></script>
+<script src = "/src/scripts/components/form.js"></script>
+
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-default" role = "navigation" style = "background:#fff">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a href="javascript:;" class="navbar-brand">
+				<img src="/src/img/logo.png" alt="" style = "height:100%;width:100%">
+			</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="javascript:;" data-toggle = "dropdown">
+					王小天<span class = "caret"></span></a>
+					<ul class="dropdown-menu"  id = "drop">
+						<li><a href="javascript:;">修改密码</a></li>
+						<li><a href="javascript:;">退出</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+    <div class="page-container">
+        <div id = "menu">
+	<ul class="menuFirst">
+		<li><a href="javascript:;">主页</a><span class = "menuIcon"> </span>
+            
+		</li>
+		<li><a href="javascript:;">系统管理</a><span class = "menuIcon"><</span>
+            <ul class="menuSecond">
+            	<li><a href="javascript:;">人员管理</a></li>
+            	<li><a href="javascript:;">角色管理</a></li>
+            	<li><a href="javascript:;">权限管理</a></li>
+            	<li><a href="javascript:;">资源管理</a></li>
+            	<li><a href="javascript:;">部门管理</a></li>
+            </ul>
+		</li>
+		<li><a href="javascript:;">景点库管理</a><span class = "menuIcon"><</span>
+            <ul class="menuSecond">
+            	<li><a href="javascript:;">新增景点</a></li>
+            	<li><a href="javascript:;">查看详情</a></li>
+            </ul>
+		</li>
+		<li><a href="javascript:;">供应商管理</a><span class = "menuIcon"><</span></li>
+		<li><a href="javascript:;">驴拍商城管理</a><span class = "menuIcon"><</span></li>
+		<li><a href="javascript:;">积分商城管理</a><span class = "menuIcon"><</span></li>
+		<li><a href="javascript:;">创科管理</a><span class = "menuIcon"><</span></li>
+		<li><a href="javascript:;">体验店管理</a><span class = "menuIcon"><</span></li>
+		<li><a href="javascript:;">代理商管理</a><span class = "menuIcon"><</span></li>
+		<li><a href="javascript:;">用户管理</a><span class = "menuIcon"><</span></li>
+		<li><a href="javascript:;">信息管理</a><span class = "menuIcon"><</span></li>
+		<li><a href="javascript:;">短信管理</a><span class = "menuIcon"><</span></li>
+		<li><a href="javascript:;">分销管理</a><span class = "menuIcon"><</span></li>
+		<li><a href="javascript:;">财务管理</a><span class = "menuIcon"><</span></li>
+		<li><a href="javascript:;">统计报表</a><span class = "menuIcon"><</span></li>
+	</ul>
+</div>
+        <div class="bread">
+            <ol class="breadcrumb">
+                <li><a href="">主页</a></li>
+                <li><a href="">系统管理</a></li>
+            </ol>
+        </div>
+        <div class="page">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <form action="" class="form1 form-horizontal">
+                                <input type="text" class="text1" data-alias="用户名：">
+                                <input type="text" class="text2" data-alias="电话：">
+                                <input type="text" class="text3" data-alias="邮箱：">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 table1">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            nihao
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    var ops = [],
+        ops1 = [];
+    ops.push({
+        name: '详细信息',
+        todo: function(index) {
+            window.location.href = 'https://www.baidu.com';
+        }
+    });
+    ops.push({
+        name: '编辑',
+        todo: function(index) {
+            window.location.href = 'https://www.zhihu.com'
+        }
+    });
+    </script>
+    <script>
+    $(function() {
+        // 组件初始化
+        tyinput.initText({
+            container: '.text1',
+            placeholder: '请输入用户名',
+            length: 4,
+            labelLength: 4,
+            name: 'username'
+        });
+        tyinput.initText({
+            container: '.text2',
+            placeholder: '请输入手机号码',
+            length: 4,
+            labelLength: 4,
+            name: 'mobilePhone'
+        });
+        tyinput.initText({
+            container: '.text3',
+            placeholder: '请输入邮箱',
+            length: 4,
+            labelLength: 4,
+            name: 'email'
+        });
+        // 初始化表格
+        tytable.init({
+            container: '.table1',
+            url: '/src/apis/table.json',
+            operation: ops,
+            cols: [{
+                name: 'number',
+                alias: '工号'
+            }, {
+                name: 'name',
+                alias: '姓名'
+            }, {
+                name: 'department',
+                alias: '部门'
+            }, {
+                name: 'role',
+                alias: '工作'
+            }]
+        })
+    })
+    </script>
+</body>
+
+</html>

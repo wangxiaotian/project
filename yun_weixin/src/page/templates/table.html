@@ -1,0 +1,30 @@
+<table class = "table table-bordered table-hover">
+	<thead>
+		<tr class = "active">
+		    {{~it.thData:item}}
+			<th>{{=item}}</th>
+		    {{~}}
+		    {{?it.opsData.length>0}}
+		    <th>操作</th>
+		    {{?}}
+		</tr>
+	</thead>
+	<tbody>
+		{{~it.tdData:row}}
+		<tr>
+			{{for(var prop in row){ }}
+			<td>{{=row[prop]}}</td>
+            {{ } }}
+
+            {{?it.opsData.length>0}}
+            <td>
+            {{for(var prop in it.opsData){ }}
+            {{=it.opsData[prop]}}
+            {{ } }}
+            </td>
+            {{?}}
+
+		</tr>
+		{{~}}
+	</tbody>
+</table>
