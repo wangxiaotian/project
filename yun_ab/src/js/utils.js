@@ -450,6 +450,7 @@
             doSure();
             sured = true;
         });
+        // unbind移除被选元素的事件处理程序
         $('.js-modal-confirm').unbind('hide.bs.modal').on('hide.bs.modal', function(){
             if(!sured){
                 doCancel&&doCancel();

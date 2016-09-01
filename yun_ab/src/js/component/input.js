@@ -231,8 +231,88 @@
                 })
             })
         }
+    })();
+    // 日期选择组件
+    (function(){
+        var TYdatePicker = TYinput.TYdatePicker = function(){
 
-    })()
+        }
+        TYdatePicker.prototype.configuration = {
+            container : '',
+            alias : '',
+            length : ''
+        }
+        TYdatePicker.prototype.init = function(options){
+            var self = this;
+            $.extend(true,this,self.configuration,options);
+            self.initFrame();
+            self.initPlug();
+        }
+        TYdatePicker.prototype.initFrame = function(){
+            var self = this;
+            self.$container = $(self.container);
+            var dom = '<div class = "form-group">\
+                        <label class = "">' + self.alias + '</label>\
+                        <div class = "input-group">\
+                            <input class = "form-control date-picker" name = "dateStart" \
+                            type = "text" placeholder = "请选择开始日期">\
+                            <span class = "input-group-addon">天</span>\
+                        </div>\
+                        <div class = "input-group">\
+                            <input class = "form-control date-picker" name = "dateStart" \
+                            type = "text" placeholder = "请选择开始日期">\
+                            <span class = "input-group-addon">云</span>\
+                        </div>\
+                    </div>';
+            self.$domhtml = $(dom);
+            self.$container.replaceWith(self.$domhtml);
+        }
+        TYdatePicker.prototype.initPlug = function(){
+            var self = this;
+            var picker = $(self.container).find('.date-picker').datepicker({
+                autoclose : true,
+                todayHightlight:true,
+                language : 'zh-cn'
+            })
+            // 添加value 什么鬼
+            if(!!self.value){
+                picker.datepicker('setData',self.value);
+            }
+            self.picker = picker;
+        }
+        /*
+         * 设置value 值，是个什么鬼
+         */
+        TYdatePicker.prototype.setValue = function(value){
+            var self = this;
+            self.picker.datepicker('setDate',value);
+        }
+        /*
+         * 获取value值，又是个什么鬼
+         */
+        TYdatePicker.prototype.getValue = function(value){
+            var self = this;
+            return self.picker.datepicker('getDate');
+        }
+        TYdatePicker.prototype.on = function(eventName,handler){
+            var self = this;
+            self.picker.datepicker().on(eventName,handler);
+        }
+        /*
+         * 设置起始日期
+         */
+        TYdatePicker.prototype.setStartDate = function(value){
+            var self = this;
+            self.picker.datepicker('setStartDate',value);
+        }
+        /*
+         * 设置结束日期
+         */
+        TYdatePicker.prototype.setEndDate = function(value){
+            var self = this;
+            self.picker.datepicker('setEndDate',value);
+        }
+    })();
     // 暴露到全局
     window.tyinput = {
         initText: function(options) {
@@ -249,6 +329,11 @@
             var tyselector = new TYinput.Selector();
             tyselector.init(options);
             return tyselector;
+        },
+        initDatePicker: function(options){
+            var tydatepicker = new TYinput.TYdatePicker();
+            tydatepicker.init(options);
+            return tydatepicker;
         }
     };
 })()
