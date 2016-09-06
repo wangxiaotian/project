@@ -1,15 +1,15 @@
-.page{
+.tablePage{
 	background:#EFF3F8;
 	padding-top: 20px;
     margin-top: -20px;
     padding-left: 10px;
     padding-right: 10px;
 }
-.page .tytable-page1{
+.tablePage .tytable-page1{
 	display : inline;
 	margin-left:20px;
 }
-.page ul li{
+.tablePage ul li{
 	list-style: none;
 	float : left;
 	width:60px;
@@ -18,15 +18,15 @@
 	padding:5px;
 	border-left:none;
 }
-.page ul li:first-child{
+.tablePage ul li:first-child{
     border-left:1px solid #ccc;
 }
-.page .tytable-input{
+.tablePage .tytable-input{
 	max-width: 35px;
 	text-align : center;
 	vertical-align: middle;
 }
-.page .tytable-page2{
+.tablePage .tytable-page2{
 	float:right;
 	padding:5px;
 	margin-top:-10px;
