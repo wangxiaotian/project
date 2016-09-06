@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>驴拍</title>
+    @@include('./templates/head.html')
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    @@include('./templates/header.html')
+    <div class="page-content">
+        @@include('./templates/menu.html')
+        <div class="bread">
+            <ol class="breadcrumb">
+                <li><a href="">主页</a></li>
+                <li><a href="">系统管理</a></li>
+            </ol>
+        </div>
+        <div class="page">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form action="" class="form1 form-horizontal">
+                        <input type="text" class="text1" data-alias="用户名：">
+                        <input type="text" class="text2" data-alias="电话：">
+                        <input type="text" class="text3" data-alias="邮箱：">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        // 组件初始化
+        tyinput.initText({
+            container: '.text1',
+            placeholder: '请输入用户名',
+            length: 4,
+            labelLength: 4,
+            name: 'username'
+        });
+        tyinput.initText({
+            container: '.text2',
+            placeholder: '请输入手机号码',
+            length: 4,
+            labelLength: 4,
+            name: 'mobilePhone'
+        });
+        tyinput.initText({
+            container: '.text3',
+            placeholder: '请输入邮箱',
+            length: 4,
+            labelLength: 4,
+            name: 'email'
+        });
+    })
+    </script>
+</body>
+
+</html>

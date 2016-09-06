@@ -8,7 +8,9 @@
     // 方法相互之间没有联系，不需要公共配置项，不需要添加
     // 原型。
 
-    // 通用获取数据的方法
+    /*
+     * 通用获取数据的方法
+     */ 
     Utils.getData = function(url,data,callback) {
         // url 要进行编码，data要进行转化，为之字符串
         var encodeUrl = encodeURI(url);
@@ -48,7 +50,9 @@
             }
         })
     }
-    // 通用发送数据的方法
+    /*
+     * 通用发送数据的方法
+     */ 
     Utils.postData = function(url,data,callback){
         // url 要进行编码，data要进行转化，为之字符串
         var encodeUrl = encodeURI(url);
@@ -87,7 +91,9 @@
             }
         })
     }
-    // 获取模板
+    /*
+     * 模板解析渲染和添加
+     */ 
     Utils.requireTmpl = function(tmpl,cb){
         var url = 'templates/' + tmpl + '.html';
         $.ajax({
@@ -116,4 +122,8 @@
         var ele = $(context);
         return $(tmpl).appendTo(ele);
     }
+    /*
+     * 弹出窗
+     */
+    
 })()
