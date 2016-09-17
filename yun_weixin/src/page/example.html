@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src = "/src/scripts/zepto.min.js"></script>
+</head>
+<body>
+
+    <div>
+        <a href="/">首页</a> / <a href="/home/news">公司新闻</a>  / <a href="/home/news/1">新品速递</a>
+    </div>
+    <br />
+    <div id="page">
+        @RenderBody()
+    </div>
+    @Scripts.Render( "~/bundles/jquery" )
+    @RenderSection( "scripts", required: false )
+
+    <script type="text/javascript">
+        $(function () {
+            window.onpopstate = function (e) {
+                //点击浏览器的前进后退按钮处理
+                if (e.state) {
+                    document.title = e.state.title;
+                    $.ajax({
+                        type: "get",
+                        url: e.state.url,
+                        success: function (data) {
+                            $("#page").html(data)
+                        },
+                        error: function (data) {
+
+                        }
+                    })
+                }
+            }
+
+            //处理点浏览器返回时候最后一个不刷新页面内容问题
+            var state = {
+                title: document.title,
+                url: document.location.href,
+                otherkey: null
+            };
+            history.replaceState(state, document.title, document.location.href);
+
+
+            $("a").click(function () {
+                var _href = $(this).attr("href");
+                $.ajax({
+                    type: "get",
+                    url: _href,
+                    success: function (data) {
+
+                        //加入到历史状态里面
+                        var state = {
+                            title: data,
+                            url: _href,
+                            otherkey: null
+                        };
+                        history.pushState(state, data, _href);
+                        
+
+                        $("#page").html(data)
+                    },
+                    error: function (data) {
+
+                    }
+                })
+
+                return false;
+            })
+        })
+    </script>
+</body>
+</html>
