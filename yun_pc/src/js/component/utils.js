@@ -45,7 +45,7 @@
                 if(typeof error === 'function'){
                     error.apply(this,arguments)
                 } else {
-                    alert('获取数据失败，请调试');
+                    alert('提交失败');
                 }
             }
         })

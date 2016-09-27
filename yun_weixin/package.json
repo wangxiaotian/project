@@ -18,5 +18,8 @@
     "gulp-connect": "^5.0.0",
     "gulp-file-include": "^0.14.0",
     "gulp-uglify": "^2.0.0"
+  },
+  "dependencies": {
+    "weui": "^0.4.3"
   }
 }
