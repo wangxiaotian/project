@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试touchstart依赖</title>
+	<script src = "../scripts/jquery.min.js"></script>
+</head>
+<body>
+	<a style = "font-size: 20px;" id = "test" href="">测试</a>
+	<script>
+		$(function(){
+			$('#test').on('touchend',function(){
+				alert(1);
+				return false;
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>测试滑动</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../css/weui.min.css">
+    <script src="../scripts/jquery.min.js"></script>
+    <style>
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .test {
+        display: none;
+    }
+    
+    .test-active {
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <header style="margin:30px 0">
+        <center>测试滑动</center>
+    </header>
+    <div class="page">
+        <div class="test test-active">
+            <p style="padding:0 5%;width:90%">点击这里进行滑动点击这里进行滑动点击这里进行滑动点击这里进行滑动点击这里进行滑动点击这里进行滑动点击这里进行滑动点击这里进行滑动点击这里进行滑动</p>
+            <div>
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+            </div>
+        </div>
+        <div class="test">
+            <p style="padding:0 5%;width:90%">第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面第二个页面</p>
+            <div>
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+                
+            </div>
+        </div>
+        <div class="test">
+            <p style="padding:0 5%;width:90%">河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流河流</p>
+            <div>
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+
+                <p>啥东西</p>
+                <br>
+                <p>啥东西</p>
+                <br>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        var TYswipe = function() {}
+        TYswipe.prototype.configuration = {
+            container: ''
+        }
+        TYswipe.prototype.init = function(options) {
+            var self = this;
+            $.extend(true, this, self.configuration, options);
+            self.touchProgress();
+            var h1 = $('body')[0].scrollHeight;
+            console.log(h1);
+        }
+        TYswipe.prototype.touchProgress = function() {
+            var self = this;
+            self.$ele = $(self.container);
+            self.$ele.on('touchstart', function(event) {
+                self.direcLeft = self.direcRight = false;
+                self.direcTop = self.direcBottom = false;
+                self.startX = self.startY = self.endX = self.endY = 0;
+                console.log(1);
+                var touch = event.originalEvent.touches[0];
+                self.startX = touch.pageX;
+                self.startY = touch.pageY;
+                console.log(self.startX)
+            })
+            self.$ele.on('touchmove', function(event) {
+                var touch = event.originalEvent.touches[0];
+                self.endX = touch.pageX;
+                self.endY = touch.pageY;
+            })
+            self.$ele.on('touchend', function(event) {
+                var touch = event.originalEvent.touches[0];
+                self.disX = self.startX - self.endX;
+                self.disY = self.startY - self.endY;
+                if (self.disX > 0) {
+                    self.direcRight = true;
+                    self.direcRightDis = self.disX;
+                } else {
+                    self.direcLeft = true;
+                    self.direcLeftDis = -self.disX;
+                }
+                if (self.disY > 0) {
+                    self.direcBottom = true;
+                } else {
+                    self.direcTop = true;
+                }
+                if (self.direcLeft) {
+                    console.log('向左滑动,滑动距离为：' + self.direcLeftDis);
+                    if (self.direcLeftDis > 100) {
+                        (self.$ele).eq(1).addClass('test-active')
+                            .siblings().removeClass('test-active');
+                    }
+                }
+                if (self.direcRight) {
+                    console.log('向右滑动,滑动距离为：' + self.direcRightDis);
+                    if (self.direcRightDis > 100) {
+                        (self.$ele).eq(2).addClass('test-active')
+                            .siblings().removeClass('test-active');
+                    }
+
+                }
+            })
+        }
+        window.tySwipe = {
+            init: function(options) {
+                var tySwipe = new TYswipe();
+                tySwipe.init(options);
+                return tySwipe;
+            }
+        }
+    })
+    </script>
+    <script>
+    $(function() {
+        tySwipe.init({
+            container: '.test'
+        });
+    })
+    </script>
+</body>
+
+</html>

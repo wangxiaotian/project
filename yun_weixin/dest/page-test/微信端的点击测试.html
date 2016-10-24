@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动端点击测试</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<script src = "../scripts/zepto.min.js"></script>
+	<script src = "../scripts/jquery.min.js"></script>
+</head>
+<body>
+	<h3>之前写移动端js有，有出现过tap、touchstart有时不能用的情况，对其用法不很清楚，相关联的有事件代理</h3>
+	<div class="content1">
+		<div class="list1">
+			<div class="lista">
+				<ul>
+					<li>可以点击</li>
+					<li>可以点击</li>
+					<li>可以点击</li>
+					<li>可以点击</li>
+					<li>可以点击</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="content2">
+	    <h3>下面测试tap事件代理</h3>
+		<div class="list2">
+			<div class="listb">
+				<ul>
+					<li>可以点击</li>
+					<li>可以点击</li>
+					<li>可以点击</li>
+					<li>可以点击</li>
+					<li>可以点击</li>
+				</ul>
+			</div>
+		</div>
+		<h4 id = "tap">单纯的tap事件测试</h4>
+		<ul class = "tap">
+			<li>单纯的tap事件测试</li>
+			<li>单纯的tap事件测试</li>
+		</ul>
+	</div>
+	<h3>经过测试：首先click是没有问题的；其次，touchstart和touchend也是可以用的，也不关系事件代理，事件代理只要是没有写错的，都能实现；最后：tap事件是不能实现的，据说其是依赖jquerymobile,只依赖jquery和zepto时实现不了</h3>
+	<script>
+		$(function(){
+			// click事件
+			$('.content1').on('click','li',function(){
+				alert('这是click事件，由列表冒泡到content层')
+			})
+			// tap事件
+			$('.content2').on('touchstart','li',function(){
+				alert('这是touchstart事件，由列表冒泡到content层')
+			})
+			$('.tap li').on('touchstart',function(){
+				alert('这是单纯的tap事件')
+			})
+			// 单纯的tap事件
+			$('#tap').on('touchend',function(){
+				alert('没有事件代理的tap事件')
+			})
+		})
+	</script>
+</body>
+</html>

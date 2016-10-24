@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>input</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/datepicker.min.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src = "../js/doT.js"></script>
+    <script src = "../js/component/utils.js"></script>
+    <script src="../js/component/input.js"></script>
+    <script src = "../js/bootstrap-datepicker.min.js"></script>
+    <script src = "../js/bootstrap-datetimepicker.min.js"></script>
+</head>
+ 
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>这是一个集合，集中了input里边的很多组件</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="example1">
+                    <h4>第一个实例，基本的输入框</h4>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class="tyinput-text1" name="orderNumber" data-alias="订单编号" />
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class="tyinput-text2" data-alias="用户名">
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class="tyinput-text3" data-alias="密码">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>第二个组件，文本输入域</h4>
+            </div>
+            <div class="col-xs-6">
+                <input type="text" class="textarea1">
+            </div>
+            <div class="col-xs-6">
+                <input type="text" class="textarea2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>第三个组件，下拉选择框</h4>
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class = "selector1">
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class = "selector2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>第四个组件，日期选择</h4>
+            </div>
+            <div class="col-xs-6">
+                <input type="text" class = "datepicker1">
+            </div>
+            <div class="col-xs-6">
+                <input type="text" class = "datepicker2">
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        // 初始化第一个插件，text插件
+        tyinput.initText({
+            container: '.tyinput-text1',
+            placeholder: '请输入订单编号',
+            length: 6,
+            labelLength: 3
+        });
+        tyinput.initText({
+            container: '.tyinput-text2',
+            placeholder: '请输入用户名',
+            length: 8,
+            labelLength: 3
+        });
+        tyinput.initText({
+                container: '.tyinput-text3',
+                placeholder: '请输入密码',
+                length: 8,
+                labelLength: 3
+            })
+            // 初始化第二个插件
+        tyinput.initTextarea({
+            container: '.textarea1',
+            labelLength: 4,
+            length: 8,
+            alias: '反馈内容',
+            height: 100,
+            maxlength: 500
+        })
+        tyinput.initTextarea({
+            container: '.textarea2',
+            labelLength: 4,
+            length: 8,
+            alias: '天书',
+            height: 200,
+            maxlength: 100
+        })
+        // 初始化第三个插件
+        tyinput.initSelector({
+            container : '.selector1',
+            length : 9,
+            labelLength : 3,
+            alias : '工单来源',
+            dataSource : '../apis/select.json',
+            defaultOption : '全部'
+        })
+        tyinput.initSelector({
+            container : '.selector2',
+            length : 9,
+            labelLength : 3,
+            alias : '民谣歌曲',
+            dataSource : '../apis/select2.json',
+            defaultOption : '你猜'
+        })
+        // 初始化第四个插件
+        tyinput.initDatePicker({
+            container : '.datepicker1',
+            alias : '日期',
+            length : ''
+        })
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/doT.js"></script>
+    <script src="../js/component/utils.js"></script>
+    <script src="../js/component/input.js"></script>
+    <script src = "../js/jquery.validate.js"></script>
+    <script src="../js/component/form.js"></script>
+    <style>
+    .error {
+        color: red;
+        font-weight:normal;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>form组件</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <form action="" class="form1 form-horizontal">
+                    <input type="text" class="text1" data-alias="用户名：">
+                    <input type="text" class="text2" data-alias="电话：">
+                    <input type="text" class = "text3" data-alias = "邮箱：">
+                    <input type="text" class="select1">
+                    <input type="text" class="area1" alias="你的建议">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-1 col-xs-offset-4">
+                <a class="btn btn-primary btn-block submitBtn">提交</a>
+            </div>
+            <div class="col-xs-1 col-xs-offset-1">
+                <button class="btn btn-primary btn-block">取消</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        // 初始化组件
+        tyinput.initText({
+            container: '.text1',
+            placeholder: '请输入用户名',
+            length: 4,
+            labelLength: 4,
+            name: 'username'
+        });
+        tyinput.initText({
+            container: '.text2',
+            placeholder: '请输入手机号码',
+            length: 4,
+            labelLength: 4,
+            name: 'mobilePhone'
+        });
+        tyinput.initText({
+            container: '.text3',
+            placeholder: '请输入邮箱',
+            length: 4,
+            labelLength: 4,
+            name: 'email'
+        });
+        tyinput.initSelector({
+            container: '.select1',
+            alias: '职业：',
+            length: 4,
+            labelLength: 4,
+            defaultOption: '请选择',
+            dataSource: '../apis/form1-1.json'
+        });
+        tyinput.initTextarea({
+            container: '.area1',
+            alias: '建议：',
+            labelLength: 4,
+            length: 4,
+            maxlength: 200,
+            height: 200,
+            name: 'suggest'
+        })
+        tyform.initForm({
+            container: '.form1',
+            validate: {
+                rules: {
+                    username: {
+                        required: true,
+                        minlength: 3
+                    },
+                    mobilePhone: {
+                        required: true,
+                        minlength: 11
+                    },
+                    suggest: 'required',
+                    email : {
+                    	required : true,
+                    	email : true
+                    }
+                },
+                messages: {
+                    username: '你必须输入用户名',
+                    mobilePhone: {
+                        required: '你必须输入手机号',
+                        minlength: '手机号码等于8个就好'
+                    },
+                    suggest: '你必须留下你的建议',
+                    email : '你必须输入一个正确的邮箱'
+                }
+            },
+            submitButton : '.submitBtn'
+        })
+    })
+    </script>
+</body>
+
+</html>

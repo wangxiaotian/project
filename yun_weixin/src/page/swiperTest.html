@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>测试滑动</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../css/weui.min.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <script src="../scripts/zepto.min.js"></script>
+    <script src="../scripts/swiper.min.js"></script>
+    <style>
+        .swiper-slide:nth-child(1){
+            background-color: #eee;
+        }
+        .swiper-slide:nth-child(2){
+            background-color: green;
+        }
+        .swiper-slide:nth-child(3){
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="margin:30px 0">
+        <center>测试滑动</center>
+    </header>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+        </div>
+        <!-- 如果需要分页器
+        <div class="swiper-pagination"></div>
+        如果需要导航按钮
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        如果需要滚动条
+        <div class="swiper-scrollbar"></div> -->
+    </div>
+    <script>
+    var mySwiper = new Swiper('.swiper-container', {
+        loop: true,
+    });
+    </script>
+</body>
+
+</html>

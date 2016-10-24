@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片预览</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/colorbox.min.css">
+	<script src = "../js/jquery.min.js"></script>
+	<script src = "../js/jquery.colorbox.min.js"></script>
+	<script src = "../js/component/gallery.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				gallery组件 
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<ul class="gallery_1">
+					<li data-thumb = "http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/" data-image = "http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/">
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			tygallery.init({
+				container : '.gallery_1'
+			})
+		})
+	</script>
+</body>
+</html>
