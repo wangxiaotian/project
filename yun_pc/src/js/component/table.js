@@ -56,7 +56,7 @@
             self.$container = $(self.container);
             var htmlstr = '<div class="table_content">\
                             <div class="tableContainer"></div>\
-                            <div class="page"></div>\
+                            <div class="tablePage"></div>\
                         </div>';
             self.$input = $(htmlstr);
             self.$input.appendTo(self.container)
@@ -117,14 +117,14 @@
     	Utils.requireTmpl('page1',function(tpl){
     		Utils.render({
     			data : '',
-    			container_child : self.$input.find('.page'),
+    			container_child : self.$input.find('.tablePage'),
     			tmpl : tpl
     		})
     	})
     }
     TYtable.prototype.trigger = function(){
     	var self = this;
-    	self.$page = self.$input.find('.page');
+    	self.$page = self.$input.find('.tablePage');
         // 这里我直接通过find方法查找select元素，找不到，先找到page，用事件代理继续绑定才可以
     	self.$page.on('change','.tytable-select',function(){
     		var pageNum = 2;

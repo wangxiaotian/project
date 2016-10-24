@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页内页</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/src/css/ypage.css">
+    <script src = "/src/scripts/zepto.min.js"></script>
+    <script src = "/src/scripts/innerPage.js"></script>
+    <style>
+    	.space{
+    		margin-top:50px;
+    	}
+    	.ypage{
+    		display:none;
+    	}
+    	.page-active{
+    		display:block;
+    	}
+    	.direc{
+    		background-color:#A6E22E;
+    		color:#fff;
+    		padding:10px;
+    		width:20%;
+    		text-align: center;
+    	}
+    </style>
+</head>
+<body>
+	<header>
+		<center><h3>简单演示页内页</h3></center>			
+	</header>
+	<div class="ypage-container">
+		<div class="ypage page-one page-active">
+			<h4 class = "space">这里是第一个页面</h4>
+			<p class = "space">山长水阔青山路远</p>
+			<div class = "space direc">前往</div>
+		</div>
+		<div class="ypage page-two page-active">
+			<h4>这里是第二个页面</h4>
+			<p class = "space">远山的樵夫遇见了渡河的行者 丢了满捆的柴火</p>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			var state;
+			window.onpopstate = function(event){
+				if(event.state){
+					//	怎么判断浏览器的后退和前进呢，这里的代码在浏览器后退和前进时都会执行
+					event.state = state;
+
+					display();
+					alert('里边')
+				} else {
+					display();
+					history.replaceState(state, '页内页', '#page-one');
+					alert('外边')
+				}
+			};
+			function display(){
+				var str = 'http://localhost:8080/src/page/innerPage.html';
+				var nowUrl = window.location.href;
+				if(nowUrl === str + '#pageTwo'){
+					$('.page').removeClass('page-active');
+					$('.page-two').addClass('page-active');
+					document.title = '页外页';
+				} else {
+					$('.page').removeClass('page-active');
+					$('.page-one').addClass('page-active');
+					document.title = '页内页';
+				}
+			};
+			state = {
+				title: '页外页',
+				url: '#pageTwo'
+			};
+			$('.page-container').on('touchstart','.direc',function(e){
+				$('.page').removeClass('page-active');
+				$('.page-two').addClass('page-active');
+				document.title = '页外页';
+				history.pushState(state,state.title,state.url);
+				var hash = window.location.hash;
+				alert(hash);
+			})
+		})
+	</script>
+</body>
+</html>
